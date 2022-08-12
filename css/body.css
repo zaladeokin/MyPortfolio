@@ -1,0 +1,29 @@
+/* style here apply to element for content*/
+div{
+    float:left;
+    word-wrap: break-word;
+    margin:0.2%;
+}
+div:not(header div, footer div){
+max-width: 310px;
+min-width:100px;
+
+/* ID selector*/
+}
+#aboutMe{
+    max-width: 310px;
+    min-width:290px;
+    background-color:lightblue;
+    clear:both;
+}
+#photo{
+    width:5em;
+    height:5em;
+    margin:0.5em;
+    float:left;
+}
+
+/*class selector*/
+.advert{
+    max-width:250px;
+}

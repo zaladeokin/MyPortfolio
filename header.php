@@ -7,6 +7,8 @@
         <meta name="description" content="This webpage is where you can know about me as your web developer and view my works and certification." />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" type="text/css" href="\MyPortfolio\css\header.css" />
+        <link rel="stylesheet" type="text/css" href="\MyPortfolio\css\body.css" />
+        <link rel="stylesheet" type="text/css" href="\MyPortfolio\css\footer.css" />
     </head>
     <body>
         <header>
