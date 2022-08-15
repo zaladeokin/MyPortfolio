@@ -16,10 +16,12 @@
         <link rel="stylesheet" type="text/css" href="\MyPortfolio\css\footer.css" /> -->
         </head>
 <body>
-    <div class="row" id="header">
-        <div class="col"><img class="hLogo" src="\MyPortfolio\images\logo.png" /><span id="sHeading">WEBNESIS</span></div>
-        <div class="col-2">NAV</div>
+    <header id="header">
+    <div class="row">
+        <div class="col-sm-9"><img class="hLogo" src="\MyPortfolio\images\logo.png" /><span id="sHeading">WEBNESIS</span></div>
+        <div class="col-sm-3">NAV</div>
       </div>
+    </header>
 <?php
 /* 
 Remember to close the below tag in footer.php
