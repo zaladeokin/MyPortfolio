@@ -1,12 +1,13 @@
 <?php
 require('header.php');
 ?>
-<div class="row">
+<div class="row border">
     <div class="col-sm-9" id="aboutMe">
+        <h1>About Me</h1><br />
         <img id="photo" src="\MyPortfolio\images\myPhoto.jpg">
         <p>
         Hello, My name is Zack...<br />
-        I'm a web developer. <br>
+        I'm a web developer. <br />
         <p> You're welcome to my porfolio, I'll be of help to tell you about myself to ease working together. </p>
         <p>It will be good to know what i do, how I do it, and lastly what i've done.
         I'm a developer that use PHP for back-end web application and equip with adequate knowledge of HTML, CSS ang JavaScript. Ha!!! Did I say adequate knowledge? Yep, I'm not bad with thembut good enough to work with them for presentation of my back-end programs.</p>
@@ -15,7 +16,7 @@ require('header.php');
     <div class="col-sm-3">
         <div class="advert">
             <strong> Are you looking for a WEB Developer?</strong>
-            <br><br> <p><span style="color:green">Here I am</span>, it's a pleasure to work with you<br>
+            <br><br> <p><span style="color:green">Here I am</span>, it's a pleasure to work with you<br />
             Check out my:
             <ul>
                 <li>Portfolio</li>
