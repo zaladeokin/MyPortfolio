@@ -5,13 +5,13 @@
     padding:0%;
     background-color: #1A62D1;
 }
-#header img {
-    width:10%;
+.hLogo{
+    width:5%;
     height:4em;
     float:left;
     margin:0%;
 }
-#header div{
+#sHeading{
     width:85%;
     padding: 0.9%;
     margin:0%;
