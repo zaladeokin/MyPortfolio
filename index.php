@@ -14,7 +14,7 @@ require('header.php');
         <p>In additiion, I'm skilled in GIT and used it as part of my development tools. Also, you can check me out on GitHub with the username "zaladeokin". If you need a partner to work with remotely, you meet the right person... thanks to Github </p>
     </div>
     <div class="col-sm-3">
-        <div class="advert">
+        <div>
             <strong> Are you looking for a WEB Developer?</strong>
             <br><br> <p><span style="color:green">Here I am</span>, it's a pleasure to work with you<br />
             Check out my:
@@ -24,7 +24,7 @@ require('header.php');
             </ul>
             </p>
         </div>
-        <div class="advert text-center">
+        <div class="text-center">
             <strong>What do I offer?</strong><br />
             <p>I specialized in the back-end development of web application with intermediate in front-end development sufficient enough to be a full-stack developer.</p> 
         </div>

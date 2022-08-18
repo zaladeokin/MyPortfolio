@@ -25,7 +25,7 @@
             <ul class="navbar-nav fs-2 text-center">
               <li class="nav-item"><a class="nav-link" href="index.php">About</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
               <li class="nav-item"><a class="nav-link" href="#">Certification</a></li>
             </ul>
           </div> 
