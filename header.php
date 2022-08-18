@@ -10,17 +10,27 @@
         <link rel="stylesheet" href="myStyle/header.css">
         <link rel="stylesheet" href="myStyle/body.css">
         <link rel="stylesheet" href="myStyle/footer.css">
-        
-        <!--<link rel="stylesheet" type="text/css" href="\MyPortfolio\css\header.css" />
-        <link rel="stylesheet" type="text/css" href="\MyPortfolio\css\body.css" />
-        <link rel="stylesheet" type="text/css" href="\MyPortfolio\css\footer.css" /> -->
         </head>
 <body>
-    <header id="header">
-    <div class="row">
-        <div class="col-sm-9"><img class="hLogo" src="\MyPortfolio\images\logo.png" /><span id="sHeading">WEBNESIS</span></div>
-        <div class="col-sm-3">NAV</div>
-      </div>
+<header id="header">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.php">
+            <img class="hLogo" src="\MyPortfolio\images\logo.png" /><span id="sHeading">WEBNESIS</span></div>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse bg-light" id="menu">
+            <ul class="navbar-nav fs-2 text-center">
+              <li class="nav-item"><a class="nav-link" href="index.php">About</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#">Certification</a></li>
+            </ul>
+          </div> 
+        </div>
+      </nav>
     </header>
 <?php
 /* 
