@@ -1,8 +1,8 @@
 <?php
 require('header.php');
 ?>
-<div class="row border">
-    <div class="col-sm-9" id="aboutMe">
+<div class="row fs-4" style="padding:1em;">
+    <div class="col-sm-9">
         <h1>About Me</h1><br />
         <img id="photo" src="\MyPortfolio\images\myPhoto.jpg" />
         <p>
