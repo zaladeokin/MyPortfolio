@@ -29,6 +29,7 @@ require('header.php');
             <p>I specialized in the back-end development of web application with intermediate in front-end development sufficient enough to be a full-stack developer.</p> 
         </div>
     </div>
+</div>
 <?php
 require('footer.php');
 ?>
