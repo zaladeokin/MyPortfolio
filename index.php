@@ -4,7 +4,7 @@ require('header.php');
 <div class="row border">
     <div class="col-sm-9" id="aboutMe">
         <h1>About Me</h1><br />
-        <img id="photo" src="\MyPortfolio\images\myPhoto.jpg">
+        <img id="photo" src="\MyPortfolio\images\myPhoto.jpg" />
         <p>
         Hello, My name is Zack...<br />
         I'm a web developer. <br />
@@ -24,7 +24,7 @@ require('header.php');
             </ul>
             </p>
         </div>
-        <div class="advert">
+        <div class="advert text-center">
             <strong>What do I offer?</strong><br />
             <p>I specialized in the back-end development of web application with intermediate in front-end development sufficient enough to be a full-stack developer.</p> 
         </div>
