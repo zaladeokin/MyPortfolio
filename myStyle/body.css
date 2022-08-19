@@ -8,6 +8,9 @@
     float:left;
 }
 
-/*next.php*/
 
+/*skillshow.php*/
+.carousel-item img{
+    height:20em;
+}
 

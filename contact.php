@@ -15,15 +15,25 @@ require('header.php');
         <textarea rows="10" class="form-control">Type your message here.</textarea>
       </div> <br />
       <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
-    </form> <br />
-     </div>
+      </form> <br />
+    </div>
     <div class="col-sm-5 text-center">
+        <div>
             <strong> Other Platforms</strong><br />
             Gmail: zaladeokin@gmail.com<br />
             Github: github.com/zaladeokin <br />
             Linkedin: <br />
             Whatsapp: +2348135994222<br />
         </div>
+        <div>
+         <strong>My tools:</strong>
+               <!-- Caurosel start here-->
+                   <?php
+                      require_once("skillshow.php");
+                   ?>
+                <!-- Caurosel ends here -->
+        </div>
+    </div>
 </div>
 
 

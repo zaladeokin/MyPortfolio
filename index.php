@@ -8,10 +8,10 @@ require('header.php');
         <p>
         Hello, My name is Zack...<br />
         I'm a web developer. <br>
-        <p> You're welcome to my porfolio, It'll be of help to tell you about myself to ease working together. </p>
-        <p>It will be good to know what i do, how I do it, and lastly what i've done.
-        I'm a developer that use PHP for back-end web application and equip with adequate knowledge of HTML, CSS ang JavaScript. Ha!!! Did I say adequate knowledge? Yep, I'm not bad with thembut good enough to work with them for presentation of my back-end programs.</p>
-        <p>In additiion, I'm skilled in GIT and used it as part of my development tools. Also, you can check me out on GitHub with the username "zaladeokin". If you need a partner to work with remotely, you meet the right person... thanks to Github </p>
+        It will be good to know what i do, how I do it, and lastly what i've done.
+        I'm a developer that use PHP and MySQL for back-end web application and equip with adequate knowledge of HTML, CSS and JavaScript. </p>
+        <p>I specialized in the back-end development of web application with enough knowledge for front-end development which is essential for a full-stack developer.</p>
+        <p>In additiion, I'm skilled in GIT and used it as part of my development tools. Also, you can check me out on GitHub with the username "zaladeokin". If you need a partner to work with remotely, you meet the right person. You can hire me to develop website for your organization,business, blog,e.t.c.</p>
     </div>
     <div class="col-sm-3">
         <div>
@@ -24,9 +24,13 @@ require('header.php');
             </ul>
             </p>
         </div>
-        <div class="text-center">
-            <strong>What do I offer?</strong><br />
-            <p>I specialized in the back-end development of web application with intermediate in front-end development sufficient enough to be a full-stack developer.</p> 
+        <div>
+            <strong>My tools:</strong>
+             <!-- Caurosel start here-->
+                 <?php
+                    require_once("skillshow.php");
+                 ?>
+        <!-- Caurosel ends here -->
         </div>
     </div>
 </div>
