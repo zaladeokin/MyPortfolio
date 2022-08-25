@@ -20,7 +20,7 @@ require('header.php');
             Check out my:
             <ul>
                 <li>Portfolio</li>
-                <li>Certification</li>
+                <li><a href="certification.php">Certification</a></li>
             </ul>
             </p>
         </div>
