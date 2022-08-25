@@ -26,7 +26,7 @@ require('header.php');
   <div class="row fs-4 bg-dark" style="padding:1em;">
     <div class="col-sm-4 mb-2">
        <div class="card">
-        <img src="\MyPortfolio\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
+        <img src="images\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
         <div class="card-body">
           <div class="card-title">Building Web Application in PHP</div>
           <div class="card-text"><a href="https://coursera.org/verify/FFVFFAVPHZ66"><button class="btn btn-info">Verification Link</button></a></div>
@@ -35,7 +35,7 @@ require('header.php');
     </div>
     <div class="col-sm-4 mb-2">
       <div class="card">
-        <img src="\MyPortfolio\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
+        <img src="images\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
         <div class="card-body">
           <div class="card-title">Building Web Application in PHP</div>
           <div class="card-text"><a href="https://coursera.org/verify/FFVFFAVPHZ66"><button class="btn btn-info">Verification Link</button></a></div>
@@ -44,7 +44,7 @@ require('header.php');
     </div>
     <div class="col-sm-4 mb-2">
       <div class="card">
-        <img src="\MyPortfolio\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
+        <img src="images\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
         <div class="card-body">
           <div class="card-title">Building Web Application in PHP</div>
           <div class="card-text"><a href="https://coursera.org/verify/FFVFFAVPHZ66"><button class="btn btn-info">Verification Link</button></a></div>
@@ -57,7 +57,7 @@ require('header.php');
 <div class="row fs-4 bg-dark" style="padding:1em;">
   <div class="col-sm-4 mb-2">
      <div class="card">
-      <img src="\MyPortfolio\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
+      <img src="images\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
       <div class="card-body">
         <div class="card-title">Building Web Application in PHP</div>
         <div class="card-text"><a href="https://coursera.org/verify/FFVFFAVPHZ66"><button class="btn btn-info">Verification Link</button></a></div>
@@ -66,7 +66,7 @@ require('header.php');
   </div>
   <div class="col-sm-4 mb-2">
     <div class="card">
-      <img src="\MyPortfolio\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
+      <img src="images\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
       <div class="card-body">
         <div class="card-title">Building Web Application in PHP</div>
         <div class="card-text"><a href="https://coursera.org/verify/FFVFFAVPHZ66"><button class="btn btn-info">Verification Link</button></a></div>
@@ -75,7 +75,7 @@ require('header.php');
   </div>
   <div class="col-sm-4 mb-2">
     <div class="card">
-      <img src="\MyPortfolio\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
+      <img src="images\certificate\CERTIFICATE_LANDING_PAGE~FFVFFAVPHZ66.jpeg" class="card-image-top" />
       <div class="card-body">
         <div class="card-title">Building Web Application in PHP</div>
         <div class="card-text"><a href="https://coursera.org/verify/FFVFFAVPHZ66"><button class="btn btn-info">Verification Link</button></a></div>
