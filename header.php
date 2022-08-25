@@ -18,7 +18,7 @@
           <a class="navbar-brand" href="index.php">
             <img class="hLogo" src="\MyPortfolio\images\logo.png" /><span id="sHeading">WEBNESIS</span></div>
           </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
+          <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Toggle menu">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse bg-light" id="menu">
