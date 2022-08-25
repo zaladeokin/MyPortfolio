@@ -14,7 +14,7 @@ require('header.php');
         <label for="message">Message:</label>
         <textarea rows="10" class="form-control">Type your message here.</textarea>
       </div> <br />
-      <button type="submit" class="btn btn-primary btn-lg">Send Message</button>
+      <button type="submit" class="btn btn-primary btn-lg float-end">Send Message</button>
       </form> <br />
     </div>
     <div class="col-sm-5 text-center">
