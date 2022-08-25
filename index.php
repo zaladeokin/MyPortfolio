@@ -19,7 +19,7 @@ require('header.php');
             <br><br> <p><span style="color:green">Here I am</span>, it's a pleasure to work with you<br />
             Check out my:
             <ul>
-                <li>Portfolio</li>
+                <li><a href="portfolio.php">Portfolio</a></li>
                 <li><a href="certification.php">Certification</a></li>
             </ul>
             </p>

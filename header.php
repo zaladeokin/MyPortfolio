@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <!-- Use PHP to generate dynamic title for page. -->
         <title>Webnesis</title>
         <meta name="keywords" content="website, webpage, development, developer,webnesis, developer" />
         <meta name="author" content="Zacchaeus Aladeokin" />
@@ -24,7 +25,7 @@
           <div class="collapse navbar-collapse bg-light" id="menu">
             <ul class="navbar-nav fs-2 text-center">
               <li class="nav-item"><a class="nav-link" href="index.php">About</a></li>
-              <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+              <li class="nav-item"><a class="nav-link" href="portfolio.php">Portfolio</a></li>
               <li class="nav-item"><a class="nav-link" href="contact.php">Contact</a></li>
               <li class="nav-item"><a class="nav-link" href="certification.php">Certification</a></li>
             </ul>
