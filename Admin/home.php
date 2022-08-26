@@ -1,5 +1,5 @@
 <?php
-include("header.php");
+require_once("header.php");
 ?>
 <div class="container-fluid p-5 fs-4">
     <h1> Administration Page</h1><br>
