@@ -1,4 +1,15 @@
 <?php
+//Model start here.
+
+?>
+
+
+
+
+
+
+<?php
+//  View starts here
 include("header.php");
 ?>
 
@@ -9,7 +20,8 @@ include("header.php");
             <label for="user">User  </label>&nbsp;&nbsp;
             <input type="text" class="form-control" /> <br />
             <label for="password">Password  </label>&nbsp;&nbsp;
-            <input type="password" class="form-control" /> <br />
+            <input type="password" class="form-control" /> <br /><br />
+            <input type="submit"  class="btn btn-primary btn-lg float-end" value="Login" />
 </form>
 <br />
 </div>
