@@ -1,4 +1,5 @@
 <?php
+require_once("dbmgt.php");
 session_start();
 $page=$_SERVER['SCRIPT_NAME'];
 if(isset($_SESSION['admin'])){
