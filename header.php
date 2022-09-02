@@ -1,3 +1,12 @@
+<?php
+require_once("C:/xampp/htdocs/Zlib/dbmgt.php");
+?>
+
+
+
+<?php
+// View start here.....
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
