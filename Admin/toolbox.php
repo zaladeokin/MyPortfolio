@@ -9,7 +9,7 @@ if(isset($_POST['tool']) && $_POST['tool'] !=""){
     if($check > 0 ){
         $status= htmlentities($tool)."&nbsp; already existed.";
     }else{
-        $add= query("INSERT INTO Toolbox(tool_name) VALUES('$tool')");
+        query("INSERT INTO Toolbox(tool_name) VALUES('$tool')");
         $status= htmlentities($tool)."&nbsp; added succesfully";
     }
 
@@ -36,7 +36,7 @@ if(isset($_POST['tool']) && $_POST['tool'] !=""){
     <div><strong>Status:</strong>&nbsp;<?= $status ?></div><br />
 <form method="post" class="fs-4">
         <div class="form-group">
-            <label for="text">Add or remove toolbox   </label>&nbsp;&nbsp;
+            <label for="text">Check or Add tool  </label>&nbsp;&nbsp;
             <input type="text" name="tool" value="<?= htmlentities($tool); ?>"class="form-control" /> <br />
         <input type="submit"  class="form-control btn btn-primary btn-lg float-end" value="Check/Add tool" />
         </div>

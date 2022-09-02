@@ -48,6 +48,7 @@ if($auth){
           <div class="collapse navbar-collapse bg-light" id="menu">
             <ul class="navbar-nav fs-2 text-center">
               <li class="nav-item"><a class="nav-link" href="home.php">Home</a></li>
+              <li class="nav-item"><a class="nav-link" href="toolbox.php">Toolbox</a></li>
               <li class="nav-item"><a class="nav-link" href="Uproject.php">Project</a></li>
               <li class="nav-item"><a class="nav-link" href="Ucertificate.php">Certificate</a></li>
               <li class="nav-item"><a class="nav-link" href="index.php">Logout</a></li>
