@@ -1,5 +1,5 @@
 <?php
-require_once("dbmgt.php");
+require_once("C:/xampp/htdocs/Zlib/dbmgt.php");
 session_start();
 $page=$_SERVER['SCRIPT_NAME'];
 if(isset($_SESSION['admin'])){

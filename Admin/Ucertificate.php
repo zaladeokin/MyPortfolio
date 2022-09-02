@@ -13,6 +13,9 @@ if( isset($_FILES['certificate']) && $_POST['title']=="" ){
 if( isset($_FILES['certificate']) && $_POST['tool_category'] == "0" ){
     $status .= "<div class='bg-danger text-center'>Choose certificate category.<br /></div>";
 }
+if( isset($_FILES['certificate']) && $_FILES['certificate']['size'] <= 0 ){
+    $status .= "<div class='bg-danger text-center'>Choose image to upload.<br /></div>";
+}
 if( isset($_FILES['certificate']) && $_POST['title'] !="" && $_POST['tool_category'] != "0" ){
     switch($_FILES['certificate']['type']){
         //check file type and create file extention, return false if not image.
