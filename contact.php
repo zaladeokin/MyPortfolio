@@ -1,18 +1,39 @@
 <?php
 require('header.php');
+$status="";
+
+if( isset($_POST['email']) && $_POST['email'] =="" ){$status = "<div class='bg-danger text-center'><strong>Email field is required.</strong></div>";} //ensure email is filled
+if( isset($_POST['message']) && ($_POST['message'] =="" || $_POST['message']=="Type your message here.") ){$status .= "<div class='bg-danger text-center'><strong>Enter a valid message.</strong></div>";} //ensure message is typed
+if( isset($_POST['email']) && isset($_POST['message']) && $_POST['email'] !="" && ($_POST['message'] !="" && $_POST['message']!= "Type your message here.")){
+  //insert message and send email to client and admin
+  $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
+  $message= filter_var($_POST['message'], FILTER_SANITIZE_STRING);
+  query("INSERT INTO Message(email, content) VALUES('$email', '$message')");
+  // use mail() function here to send instant email response to client and yourself.....
+        $status= "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
+}
+
+/*
+  In the upgrading of this app work on having a separate table in Database for email and use Foreign Key on Message table.
+*/
 ?>
+
+<?php
+// View start here.................
+?>
+    <?= $status; ?></strong></div><br />
 <div class="row fs-4" style="padding:1em;">
     <div class="col-sm-7 fs-4">
         <h1 class="text-center">Contact Me</h1><br />
         <p> Send me a message for feedback, enquiries, project deal,e.t.c. </p>
-        <form role="form">
+        <form method="post" action="contact.php" role="form">
       <div class="form-group">
         <label for="email">Your Email:</label>
-        <input type="email" class="form-control">
+        <input type="email" name= "email" class="form-control">
       </div>  
       <div class="form-group">
         <label for="message">Message:</label>
-        <textarea rows="10" class="form-control">Type your message here.</textarea>
+        <textarea rows="10" name="message" class="form-control">Type your message here.</textarea>
       </div> <br />
       <button type="submit" class="btn btn-primary btn-lg float-end">Send Message</button>
       </form> <br />
