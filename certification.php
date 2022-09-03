@@ -41,7 +41,13 @@ if(!$cont){
           <img src="images/certificate/$t[img]" class="card-image-top" />
           <div class="card-body">
             <div class="card-title">$t[title]</div>
-            <div class="card-text"><a href="$t[verification]"><button class="btn btn-info">Verification Link</button></a></div>
+    _END;
+    if($t['verification'] != ""){//since verification link is optional, Check if it is provided....
+            echo <<<_END
+              <div class="card-text"><a href="$t[verification]"><button class="btn btn-info">Verification Link</button></a></div>
+              _END;
+            }
+    echo <<<_END
           </div>
          </div> 
       </div>
