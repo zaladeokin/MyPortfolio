@@ -5,6 +5,7 @@ require_once("header.php");
 //control access to admin page
 $access= isset($_GET['private'])? $_GET['private']:"intruder";
 if($access != hash('md5', '111')){
+    //header("Location:http://webnesis.22web.org"); //Intruder redirect to non-admin homepage
     header("Location:http://localhost/MyPortfolio/"); //Intruder redirect to non-admin homepage
 }
 
@@ -24,6 +25,7 @@ if(isset($_POST['user']) && isset($_POST['password'])){
         $_SESSION['admin']= $user;
         header("Location:home.php"); //To homepage
     }else{
+    //header("Location:http://webnesis.22web.org/"); //Incorrect login details redirect to non-admin homepage
     header("Location:http://localhost/MyPortfolio/"); //Incorrect login details redirect to non-admin homepage
     }
 }

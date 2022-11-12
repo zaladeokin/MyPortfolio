@@ -33,7 +33,8 @@ if( isset($_FILES['certificate']) && $_POST['title'] !="" && $_POST['tool_catego
             $title= filter_var($_POST['title'], FILTER_SANITIZE_STRING);
             $verification= filter_var($_POST['verification'], FILTER_VALIDATE_URL);
             $cat= filter_var($_POST['tool_category'], FILTER_SANITIZE_STRING);
-            move_uploaded_file($_FILES['certificate']['tmp_name'], 'C:/xampp/htdocs/MyPortfolio/images/certificate/'.$name);
+            move_uploaded_file($_FILES['certificate']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/images/certificate/'.$name);
+            //move_uploaded_file($_FILES['certificate']['tmp_name'], 'C:/xampp/htdocs/MyPortfolio/images/certificate/'.$name);
             query("INSERT INTO Certificate(title, img, toolbox_id, verification) VALUES('$title', '$name', $cat, '$verification')");
             $status= "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>File uploaded successfully.</strong><br />Tile: $title <br /> Verification Link: $verification <br />Filename: $name<br />File Size:". ($_FILES['certificate']['size']/1000)." KB<br /></div>";
         }

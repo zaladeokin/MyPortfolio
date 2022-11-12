@@ -29,7 +29,8 @@ if( isset($_FILES['image']) && $_POST['name'] !="" && $_POST['description'] != "
             $img= time().$ext;
             $pname= filter_var($_POST['name'], FILTER_SANITIZE_STRING);
             $description= filter_var($_POST['description'], FILTER_SANITIZE_STRING);
-            move_uploaded_file($_FILES['image']['tmp_name'], 'C:/xampp/htdocs/MyPortfolio/images/MyWork/'.$img);
+            move_uploaded_file($_FILES['image']['tmp_name'], $_SERVER['DOCUMENT_ROOT'].'/images/MyWork/'.$img);
+            //move_uploaded_file($_FILES['image']['tmp_name'], 'C:/xampp/htdocs/MyPortfolio/images/MyWork/'.$img);
             query("INSERT INTO Project(project_name, img, description) VALUES('$pname', '$img', '$description')");
             $status= "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>File uploaded successfully.</strong><br />Project Name: $pname <br /> Description: $description <br />Filename: $img<br />File Size:". ($_FILES['image']['size']/1000)." KB<br /></div>";
         }
