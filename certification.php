@@ -74,5 +74,5 @@ echo "</div>"; //Ending row <div> here
 
 
 <?php
-require('footer.php');
+require_once('footer.php');
 ?>
