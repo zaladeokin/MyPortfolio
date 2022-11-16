@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('publicPDO.php');
+require_once('publicPDO.php');
 
 //Load certificate from Database
 try{
