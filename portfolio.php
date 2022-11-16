@@ -1,15 +1,22 @@
 <?php
-require('header.php');
+session_start();
+require_once('publicPDO.php');
 
-$data= query("SELECT * FROM Project");
-$cont= ($data->num_rows) > 0 ? true : false; //check the number of work upload, 0 means no work
+//Load project from Database
+try{
+  $data= $pdo->query("SELECT * FROM Project");
+  $cont= ($data->rowCount()) > 0 ? true : false; //check the number of work upload, 0 means no work
+}catch(Exception $e){
+  error_log("Database(Guest) error  ::::". $e->getMessage());
+  $cont= false;
+}
 ?>
 
 
 
 <?php
 // View start here...........
-
+require_once('header.php');
 if(!$cont){
   //  ******** Alternate contentent to generate if no project work is uploaded**********************
 echo <<<_END
@@ -38,7 +45,7 @@ echo <<<_END
   //Rows for display (4 col each * 3 images)
  echo ' <div class="row fs-4 bg-dark" style="padding:0.1em;">'; //Begining row <div>here
  $i=0;
- while($t = $data->fetch_assoc()){
+ while($t = $data->fetch(PDO::FETCH_ASSOC)){
   echo <<<_END
       <div class="col-sm-4 mb-1">
          <div class="card">
@@ -66,5 +73,5 @@ echo "</div>"; //ending row <div>
 
 
 <?php
-require('footer.php');
+require_once('footer.php');
 ?>
