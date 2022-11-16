@@ -1,5 +1,5 @@
 <?php
-require('header.php');
+require_once('header.php');
 ?>
 <div class="row fs-4" style="padding:1em;">
     <div class="col-sm-9">
@@ -43,5 +43,5 @@ require('header.php');
     </div>
 </div>
 <?php
-require('footer.php');
+require_once('footer.php');
 ?>
