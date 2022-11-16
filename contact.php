@@ -1,16 +1,43 @@
 <?php
-require('header.php');
-$status="";
+session_start();
+require('publicPDO.php');
+$valid= true;
+if( isset($_POST['email']) && isset($_POST['message']) ){
+  $_SESSION['status']="";
+  $email= $_SESSION['email']= $_POST['email'];
+  $message= $_SESSION['message']= $_POST['message'];
 
-if( isset($_POST['email']) && $_POST['email'] =="" ){$status = "<div class='bg-danger text-center'><strong>Email field is required.</strong></div>";} //ensure email is filled
-if( isset($_POST['message']) && ($_POST['message'] =="" || $_POST['message']=="Type your message here.") ){$status .= "<div class='bg-danger text-center'><strong>Enter a valid message.</strong></div>";} //ensure message is typed
-if( isset($_POST['email']) && isset($_POST['message']) && $_POST['email'] !="" && ($_POST['message'] !="" && $_POST['message']!= "Type your message here.")){
-  //insert message and send email to client and admin
-  $email= filter_var($_POST['email'], FILTER_SANITIZE_STRING);
-  $message= filter_var($_POST['message'], FILTER_SANITIZE_STRING);
-  query("INSERT INTO Message(email, content) VALUES('$email', '$message')");
-  // use mail() function here to send instant email response to client and yourself.....
-        $status= "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
+  if($email =="" ){ //ensure email is filled
+    $valid= false;
+    $_SESSION['status'] .= "<div class='bg-danger text-center'><strong>Email field is required.</strong></div>";
+  } else if(!(preg_match("[@]", $email))){// Ensure email is valid
+    $valid= false;
+    $_SESSION['status'] .= "<div class='bg-danger text-center'><strong>Email must have an at-sign (@)</strong></div>";
+  }
+
+  if( $message =="" || $message =="Type your message here." ){//ensure message is typed
+    $valid= false;
+    $_SESSION['status'] .= "<div class='bg-danger text-center'><strong>Enter a valid message.</strong></div>";
+  } 
+
+  if( $valid ){//insert message and send email to client and admin
+    try{
+      $upload= $pdo->prepare("INSERT INTO Message(email, content) VALUES(:em, :msg)");
+      $upload->execute(array(
+        ':em'=> $email,
+        ':msg'=>$message
+      ));
+      // use mail() function here to send instant email response to client and yourself.....
+      $_SESSION['status'] = "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
+      unset($_SESSION['message']);
+    }catch(Exception $e){
+        error_log("Database(Guest- $email) error  ::::". $e->getMessage());
+        $_SESSION['status'] = "<div class='bg-danger text-center'><strong>An error occured, Try again.</strong></div>";
+      }
+    
+  }
+  header("Location: contact.php");
+  return;
 }
 
 /*
@@ -20,8 +47,28 @@ if( isset($_POST['email']) && isset($_POST['message']) && $_POST['email'] !="" &
 
 <?php
 // View start here.................
+require_once('header.php');
+
+//Flash POST status message
+if ( isset($_SESSION['status']) ) {
+  echo $_SESSION['status'];
+  unset($_SESSION['status']);
+}
+//Check if email was previously submitted or existed in current session.
+if ( isset($_SESSION['email']) ) {
+  $email= htmlentities($_SESSION['email']);
+}else{
+  $email="";
+}
+//Check if message sent not successfull in previous request.
+if ( isset($_SESSION['message']) ) {
+  $message= htmlentities($_SESSION['message']);
+  unset($_SESSION['message']);
+}else{
+  $message="Type your message here.";
+}
 ?>
-    <?= $status; ?></strong></div><br />
+<br>
 <div class="row fs-4" style="padding:1em;">
     <div class="col-sm-7 fs-4">
         <h1 class="text-center">Contact Me</h1><br />
@@ -29,11 +76,11 @@ if( isset($_POST['email']) && isset($_POST['message']) && $_POST['email'] !="" &
         <form method="post" action="contact.php" role="form">
       <div class="form-group">
         <label for="email">Your Email:</label>
-        <input type="email" name= "email" class="form-control">
+        <input type="email" name= "email" value="<?= $email ?>" class="form-control">
       </div>  
       <div class="form-group">
         <label for="message">Message:</label>
-        <textarea rows="10" name="message" class="form-control">Type your message here.</textarea>
+        <textarea rows="10" name="message" class="form-control"><?= $message ?></textarea>
       </div> <br />
       <button type="submit" class="btn btn-primary btn-lg float-end">Send Message</button>
       </form> <br />
@@ -67,5 +114,5 @@ if( isset($_POST['email']) && isset($_POST['message']) && $_POST['email'] !="" &
 
 
 <?php
-require('footer.php');
+require_once('footer.php');
 ?>
