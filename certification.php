@@ -1,13 +1,20 @@
 <?php
-require('header.php');
+session_start();
+require('publicPDO.php');
 
-$data= query("SELECT * FROM Certificate");
-$cont= ($data->num_rows) > 0 ? true : false; //check the number of work upload, 0 means no work
+//Load certificate from Database
+try{
+  $data= $pdo->query("SELECT * FROM Certificate");
+  $cont= ($data->rowCount()) > 0 ? true : false; //check the number of work upload, 0 means no work
+}catch(Exception $e){
+  error_log("Database(Guest) error  ::::". $e->getMessage());
+  $cont= false;
+}
 ?>
 
 <?php
 //View start here...............................
-
+require_once('header.php');
 if(!$cont){
   //******** Alternate content to generate if there's no Certificate**********************
     echo <<<_END
@@ -34,7 +41,7 @@ if(!$cont){
   //Rows for display (4 col each * 3 images)-->
   echo '<div class="row fs-4 bg-dark" style="padding:0.1em;">'; //Begining row <div> here
   $i=0;
-  while($t = $data->fetch_assoc()){
+  while($t = $data->fetch(PDO::FETCH_ASSOC)){
     echo <<<_END
       <div class="col-sm-4 mb-1">
         <div class="card">

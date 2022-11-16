@@ -1,17 +1,7 @@
-<?php
-require_once("C:/xampp/htdocs/Zlib/dbmgt.php");
-//require_once("dbmgt.php");
-?>
-
-
-
-<?php
-// View start here.....
-?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <!-- Use PHP to generate dynamic title for page. -->
+      <?php //Use PHP to generate dynamic title for page. ?>
         <title>Webnesis</title>
         <meta name="keywords" content="website, webpage, development, developer,webnesis, developer" />
         <meta name="author" content="Zacchaeus Aladeokin" />
