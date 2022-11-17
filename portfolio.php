@@ -46,14 +46,16 @@ echo <<<_END
  echo ' <div class="row fs-4 bg-dark" style="padding:0.1em;">'; //Begining row <div>here
  $i=0;
  while($t = $data->fetch(PDO::FETCH_ASSOC)){
+  $name= htmlentities($t['project_name']);
+  $description= htmlentities($t['description']);
   echo <<<_END
       <div class="col-sm-4 mb-1">
          <div class="card">
             <img src="images/MyWork/$t[img]" class="card-image-top" />
            <div class="card-body">
-              <h1 class="card-title">$t[project_name]</h1><br />
+              <h1 class="card-title">$name</h1><br />
               <p class="card-text">
-              $t[description]
+              $description
               </p>
             </div>
           </div> 

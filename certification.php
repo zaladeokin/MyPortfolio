@@ -42,16 +42,18 @@ if(!$cont){
   echo '<div class="row fs-4 bg-dark" style="padding:0.1em;">'; //Begining row <div> here
   $i=0;
   while($t = $data->fetch(PDO::FETCH_ASSOC)){
+    $title= htmlentities($t['title']);
+    $verification= htmlentities($t['verification']);
     echo <<<_END
       <div class="col-sm-4 mb-1">
         <div class="card">
           <img src="images/certificate/$t[img]" class="card-image-top" />
           <div class="card-body">
-            <div class="card-title">$t[title]</div>
+            <div class="card-title">$title</div>
     _END;
-    if($t['verification'] != ""){//since verification link is optional, Check if it is provided....
+    if($verification != ""){//since verification link is optional, Check if it is provided....
             echo <<<_END
-              <div class="card-text"><a href="$t[verification]"><button class="btn btn-info">Verification Link</button></a></div>
+              <div class="card-text"><a href="$verification"><button class="btn btn-info">Verification Link</button></a></div>
               _END;
             }
     echo <<<_END
