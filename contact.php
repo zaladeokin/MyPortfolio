@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('cookie.php');
 require('publicPDO.php');
 require_once("C:/xampp/htdocs/Zlib/zlib.php");
 $valid= true;

@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once('cookie.php');
 require_once('header.php');
 ?>
 <div class="row fs-4" style="padding:1em;">
