@@ -64,7 +64,7 @@ if( isset($_FILES['image']) && isset($_POST['name']) && isset($_POST['descriptio
 
 <?php
 // View start here
-include("header.php");
+require_once("header.php");
 
 flashMessage('status');//Flash status message
 //repopulate form value
@@ -87,5 +87,5 @@ $description= repopulate('description');
 </div>
 
 <?php
-include("footer.php");
+require_once("footer.php");
 ?>

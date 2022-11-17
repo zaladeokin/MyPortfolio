@@ -64,5 +64,5 @@ $tool= repopulate('tool');// repopulate input bar
 </div>
 
 <?php
-include("footer.php");
+require_once("footer.php");
 ?>

@@ -14,5 +14,5 @@ require_once("header.php");
 </div>
 
 <?php
-include("footer.php");
+require_once("footer.php");
 ?>

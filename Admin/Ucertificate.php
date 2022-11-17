@@ -74,7 +74,7 @@ if( isset($_FILES['certificate']) && isset($_POST['title']) && isset($_POST['too
 
 <?php
 //view start here....
-include("header.php");
+require_once("header.php");
 
 flashMessage('status');//Flash status message
 //repopulate form value
@@ -111,5 +111,5 @@ $select= ($cat != "" || $cat != "0") ? "" :"selected";
 </div>
 
 <?php
-include("footer.php");
+require_once("footer.php");
 ?>
