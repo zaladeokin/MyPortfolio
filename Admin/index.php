@@ -1,5 +1,8 @@
 <?php
-require_once("header.php");
+session_start();
+//require_once("adminPDO.php");
+//require_once("C:/xampp/htdocs/Zlib/zlib.php");
+require_once("auth.php");
 //Model start here.
 
 //control access to admin page
@@ -39,6 +42,7 @@ if(isset($_POST['user']) && isset($_POST['password'])){
 
 <?php
 //  View starts here
+require_once("header.php");
 ?>
 
 <div class="container p-5 fs-4">

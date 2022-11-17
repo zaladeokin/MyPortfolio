@@ -1,17 +1,32 @@
 <?php
-include("header.php");
-$status=$tool="";
-if(isset($_POST['tool']) && $_POST['tool'] !=""){
-    $tool= filter_var($_POST['tool'], FILTER_SANITIZE_STRING);
-    //check if tool existed, if not add tool
-    $check= query("SELECT * FROM Toolbox where tool_name='$tool'");
-    $check= $check->num_rows;
-    if($check > 0 ){
-        $status= htmlentities($tool)."&nbsp; already existed.";
+session_start();
+require_once("adminPDO.php");
+require_once("C:/xampp/htdocs/Zlib/zlib.php");
+require_once("auth.php");
+$tool="";
+if(isset($_POST['tool'])){
+    if($_POST['tool'] !=""){
+        $tool= $_SESSION['tool'] = $_POST['tool'];
+        //check if tool existed, if not add tool
+        try{
+            $check= $pdo->query("SELECT * FROM Toolbox where tool_name='$tool'");
+            $check= $check->rowCount();
+            if($check > 0 ){
+                $_SESSION['status']= "<div><strong>Status:</strong>&nbsp;".htmlentities($tool)."&nbsp; already existed.</div><br />";
+            }else{
+                $upload= $pdo->prepare("INSERT INTO Toolbox(tool_name) VALUES(:tl)");
+                $upload->execute(array(':tl'=> $tool));
+                $_SESSION['status']= "<div><strong>Status:</strong>&nbsp;".htmlentities($tool)."&nbsp; added succesfully</div><br />";
+            }
+        }catch(Exception $e){
+            error_log("Database(Admin) error  ::::". $e->getMessage());
+            $_SESSION['status']= "<div><strong>Status:&nbsp;</strong>An error occured</div><br />";
+          }
     }else{
-        query("INSERT INTO Toolbox(tool_name) VALUES('$tool')");
-        $status= htmlentities($tool)."&nbsp; added succesfully";
+        $_SESSION['status']= "<div><strong>Status:</strong>&nbsp;Invalid input</div><br />";
     }
+    header("Location: toolbox.php");
+    return;
 
 }
 
@@ -30,14 +45,18 @@ if(isset($_POST['tool']) && $_POST['tool'] !=""){
 
 <?php
 // VIew start here.
+require_once("header.php");
 ?>
 <div class="container p-5 fs-4">
     <h1> Toolbox</h1><br />
-    <div><strong>Status:</strong>&nbsp;<?= $status ?></div><br />
+<?php 
+flashMessage('status');// Flash status message.
+$tool= repopulate('tool');// repopulate input bar
+?>
 <form method="post" class="fs-4">
         <div class="form-group">
             <label for="text">Check or Add tool  </label>&nbsp;&nbsp;
-            <input type="text" name="tool" value="<?= htmlentities($tool); ?>"class="form-control" /> <br />
+            <input type="text" name="tool" value="<?= $tool; ?>"class="form-control" /> <br />
         <input type="submit"  class="form-control btn btn-primary btn-lg float-end" value="Check/Add tool" />
         </div>
 </form>

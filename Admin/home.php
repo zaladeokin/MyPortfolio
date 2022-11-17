@@ -1,4 +1,6 @@
 <?php
+session_start();
+require_once("auth.php");
 require_once("header.php");
 ?>
 <div class="container-fluid p-5 fs-4">

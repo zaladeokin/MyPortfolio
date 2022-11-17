@@ -1,24 +1,3 @@
-<?php
-require_once("C:/xampp/htdocs/Zlib/dbmgt.php");
-//require_once("dbmgt.php");
-session_start();
-$page=$_SERVER['SCRIPT_NAME'];
-if(isset($_SESSION['admin'])){
-  $auth=true;
-} else{$auth= false;}
-
-if( $page == "/MyPortfolio/Admin/index.php"){
-  //Login page
-  $auth= false; //disable navbar
-}else if(!$auth){
-  header("Location:index.php"); //Must login
-}
-
-
-?>
-
-
-
 <?php 
 //View start here
 ?>

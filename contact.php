@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('publicPDO.php');
+require_once("C:/xampp/htdocs/Zlib/zlib.php");
 $valid= true;
 if( isset($_POST['email']) && isset($_POST['message']) ){
   $_SESSION['status']="";
@@ -50,23 +51,12 @@ if( isset($_POST['email']) && isset($_POST['message']) ){
 require_once('header.php');
 
 //Flash POST status message
-if ( isset($_SESSION['status']) ) {
-  echo $_SESSION['status'];
-  unset($_SESSION['status']);
-}
+flashMessage('status');
+
 //Check if email was previously submitted or existed in current session.
-if ( isset($_SESSION['email']) ) {
-  $email= htmlentities($_SESSION['email']);
-}else{
-  $email="";
-}
+$email= repopulate('email',"", false);
 //Check if message sent not successfull in previous request.
-if ( isset($_SESSION['message']) ) {
-  $message= htmlentities($_SESSION['message']);
-  unset($_SESSION['message']);
-}else{
-  $message="Type your message here.";
-}
+$message= repopulate('message',"Type your message here.");
 ?>
 <br>
 <div class="row fs-4" style="padding:1em;">
