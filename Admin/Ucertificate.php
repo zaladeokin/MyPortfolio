@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("adminPDO.php");
+//require_once("http://webnesis.byehost7.com/Zlib/zlib.php");
 require_once("C:/xampp/htdocs/Zlib/zlib.php");
 require_once("auth.php");
 
@@ -86,7 +87,7 @@ $select= ($cat != "" || $cat != "0") ? "" :"selected";
 <div class="container p-5 fs-4">
     <h1> Upload Certificate</h1><br>
 <form method="post" action="Ucertificate.php" enctype="multipart/form-data" class="fs-4">
-    <!-- PHP shoud control title length not too be too much-->
+    <?php //PHP shoud control title length not too be too much ?>
             <label for="Title">Title   </label>&nbsp;&nbsp;
             <input type="text" name="title" value="<?= $title; ?>" class="form-control" /> <br />
             <label for="Title">Verification Link(optional)  </label>&nbsp;&nbsp;

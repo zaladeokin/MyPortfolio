@@ -48,7 +48,7 @@ require_once("header.php");
 <div class="container p-5 fs-4">
     <h1> Portal</h1><br>
 <form method="post" class="fs-4">
-    <!-- Login form, PHP should generate hash for this page to be access-->
+    <?php // Login form, PHP should generate hash for this page to be access ?>
             <label for="user">User  </label>&nbsp;&nbsp;
             <input type="text" name="user" class="form-control" /> <br />
             <label for="password">Password  </label>&nbsp;&nbsp;

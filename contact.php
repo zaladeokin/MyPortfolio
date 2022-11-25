@@ -3,6 +3,7 @@ session_start();
 require_once('cookie.php');
 require_once('publicPDO.php');
 require_once("C:/xampp/htdocs/Zlib/zlib.php");
+//require_once("http://webnesis.byehost7.com/Zlib/zlib.php");
 $valid= true;
 if( isset($_POST['email']) && isset($_POST['message']) ){
   $_SESSION['status']="";
@@ -32,6 +33,8 @@ if( isset($_POST['email']) && isset($_POST['message']) ){
       // use mail() function here to send instant email response to client and yourself.....
       $_SESSION['status'] = "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
       unset($_SESSION['message']);
+      //setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "webnesis.22web.org");
+      //setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "webnesis.22web.org");
       setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "localhost/MyPortfolio");
       setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "localhost/MyPortfolio");
     }catch(Exception $e){
