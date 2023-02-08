@@ -9,6 +9,11 @@
 }
 
 
+/*project.php & certificate.php*/
+.card{
+    border: unset;
+}
+
 /*skillshow.php*/
 .carousel-item img{
     height:20em;

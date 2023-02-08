@@ -5,7 +5,7 @@ require_once('publicPDO.php');
 
 //Load project from Database
 try{
-  $data= $pdo->query("SELECT * FROM Project");
+  $data= $pdo->query("SELECT * FROM Project ORDER BY project_id DESC");
   $cont= ($data->rowCount()) > 0 ? true : false; //check the number of work upload, 0 means no work
 }catch(Exception $e){
   error_log("Database(Guest) error  ::::". $e->getMessage());
@@ -43,14 +43,17 @@ echo <<<_END
     _END;
   //Loop through project work here...
   //Control the length of card-title and card-text
-  //Rows for display (4 col each * 3 images)
- echo ' <div class="row fs-4 bg-dark" style="padding:0.1em;">'; //Begining row <div>here
- $i=0;
+ echo ' <div class="row fs-4" style="padding:0.1em;">'; //Begining row <div>here
+ $i=1; //Ensure the last item  occupied remaining space
  while($t = $data->fetch(PDO::FETCH_ASSOC)){
-  $name= htmlentities($t['project_name']);
-  $description= htmlentities($t['description']);
+    $name= htmlentities($t['project_name']);
+    $description= htmlentities($t['description']);
+    $md= ($data->rowCount() % 2== 1) && ($i == 1) ? 'col-md-12' : 'col-md-6' ;//Ensure the last item  occupied remaining space
+    if( ($data->rowCount() % 3== 1) && ($i == 1) ){$lg= 'col-lg-12';
+    }else if( ($data->rowCount() % 3== 2) && ($i < 3) ){$lg= 'col-lg-6';
+    }else{ $lg= 'col-lg-4'; }//Ensure the last item  occupied remaining space
   echo <<<_END
-      <div class="col-sm-4 mb-1">
+      <div class="col-sm-12 $md $lg mb-1">
          <div class="card">
             <img src="images/MyWork/$t[img]" class="card-image-top" />
            <div class="card-body">
@@ -63,12 +66,6 @@ echo <<<_END
       </div>
   _END;
   $i += 1;
-  if($i==3){ 
-      //Additional row <div>
-      echo "</div>";
-      echo ' <div class="row fs-4 bg-dark" style="padding:0.1em;">';
-      $i=0;
-      }
   }
 echo "</div>"; //ending row <div>
 }
