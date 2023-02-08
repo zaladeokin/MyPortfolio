@@ -83,18 +83,11 @@ $message= repopulate('message',"Type your message here.");
     </div>
     <div class="col-sm-5 text-center">
         <div>
-            <strong> Other Platforms:</strong><br />
-            Gmail: zaladeokin@gmail.com<br />
-            Github: github.com/zaladeokin <br />
-            Linkedin: <br />
-            Whatsapp: +2348135994222<br />
-            <?php // In live production, comment the above and uncomment the bellow ?>
-            <!--
-            <a href="mailto: zaladeokin@gmail.com"><i class="fa-regular fa-envelope fa-4x" id="gmIco"></i></a>
-             <a href="https://github.com/zaladeokin"><i class="fa-brands fa-github fa-4x" id="ghIco"></i></a>
-              <a href="https://www.linkedin.com/in/zacchaeus-aladeokin-7b334a22a"><i class="fa-brands fa-linkedin fa-4x" id="liIco"></i></a>
-              <a href="https://api.whatsapp.com/send?phone=2348135994222"><i class="fa-brands fa-whatsapp fa-4x" id="waIco"></i></a><br /><br />
-            -->
+          <strong> Other Platforms:</strong><br />
+          <a href="mailto: zaladeokin@gmail.com"><i class="fa-regular fa-envelope fa-4x" id="gmIco"></i></a>
+          <a href="https://github.com/zaladeokin"><i class="fa-brands fa-github fa-4x" id="ghIco"></i></a>
+          <a href="https://www.linkedin.com/in/zacchaeus-aladeokin-7b334a22a"><i class="fa-brands fa-linkedin fa-4x" id="liIco"></i></a>
+          <a href="https://api.whatsapp.com/send?phone=2348135994222"><i class="fa-brands fa-whatsapp fa-4x" id="waIco"></i></a><br /><br />
         </div>
         <div>
          <strong>My tools:</strong>
