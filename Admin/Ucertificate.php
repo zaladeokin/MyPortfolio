@@ -7,7 +7,7 @@ require_once("auth.php");
 
 //Tool category from Database
 try{
-    $tool= $pdo->query("SELECT * FROM tOOLBOX");
+    $tool= $pdo->query("SELECT * FROM Toolbox");
     $tval= ($tool->rowCount() > 0 ) ? true : false; // check if Tool category have been created
 }catch(Exception $e){
     error_log("Database(Admin) error  ::::". $e->getMessage());

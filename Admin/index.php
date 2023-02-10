@@ -7,7 +7,7 @@ require_once("auth.php");
 
 //control access to admin page
 $access= isset($_GET['private'])? $_GET['private']:"intruder";
-if($access != hash('md5', '111')){
+if($access != 'aladex'){
     //header("Location:http://webnesis.22web.org"); //Intruder redirect to non-admin homepage
     header("Location:http://localhost/MyPortfolio/"); //Intruder redirect to non-admin homepage
 }

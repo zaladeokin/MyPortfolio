@@ -1,8 +1,7 @@
 <?php
 session_start();
 require_once("adminPDO.php");
-//require_once("http://webnesis.byehost7.com/Zlib/zlib.php");
-require_once("C:/xampp/htdocs/Zlib/zlib.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 require_once("auth.php");
 
 if( isset($_FILES['image']) && isset($_POST['name']) && isset($_POST['description']) ){
@@ -78,7 +77,7 @@ $description= repopulate('description');
     <?php //PHP shoud control title and description length not too be too much ?>
             <label for="Title">Project Name (max of 50 character)   </label>&nbsp;&nbsp;
             <input type="text" name="name" value="<?= $name; ?>" class="form-control" /> <br />
-            <label for="description">Description (max of 250 character)  </label>
+            <label for="description">Description (max of 500 character)  </label>
             <textarea name="description" class="form-control" rows="5"><?= $description; ?></textarea><br />
         <label for="image" class="form-label">Screenshot  </label>
         <input type="file" name="image" class="form-control"  accept="image/*" /> <br /><br />

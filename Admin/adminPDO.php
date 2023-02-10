@@ -1,6 +1,7 @@
 <?php
 /*
 Run this on your Database server... Replace localhost with your website address.
+hint:: Admin@zack.com.ng
 
 GRANT ALL ON Portfolio.* TO 'Admin'@'localhost' IDENTIFIED BY 'webAdmin';
 

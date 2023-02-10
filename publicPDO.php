@@ -1,7 +1,7 @@
 <?php
 /*
 Run this on your Database server... Replace localhost with your website address.
-
+Hint: Guest@Portfolio
 GRANT INSERT ON Portfolio.message TO 'Guest'@'localhost' IDENTIFIED BY 'publicUser';
 GRANT SELECT ON Portfolio.* TO 'Guest'@'localhost';
 
