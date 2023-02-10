@@ -1,9 +1,7 @@
 <?php
-session_start();
 require_once('cookie.php');
 require_once('publicPDO.php');
-require_once("C:/xampp/htdocs/Zlib/zlib.php");
-//require_once("http://webnesis.byehost7.com/Zlib/zlib.php");
+require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 $valid= true;
 if( isset($_POST['email']) && isset($_POST['message']) ){
   $_SESSION['status']="";
@@ -18,7 +16,7 @@ if( isset($_POST['email']) && isset($_POST['message']) ){
     $_SESSION['status'] .= "<div class='bg-danger text-center'><strong>Email must have an at-sign (@)</strong></div>";
   }
 
-  if( $message =="" || $message =="Type your message here." ){//ensure message is typed
+  if( $message ==""){//ensure message is typed
     $valid= false;
     $_SESSION['status'] .= "<div class='bg-danger text-center'><strong>Enter a valid message.</strong></div>";
   } 
@@ -35,8 +33,8 @@ if( isset($_POST['email']) && isset($_POST['message']) ){
       unset($_SESSION['message']);
       //setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "webnesis.22web.org");
       //setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "webnesis.22web.org");
-      setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "localhost/MyPortfolio");
-      setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "localhost/MyPortfolio");
+      setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "/");
+      setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "/");
     }catch(Exception $e){
         error_log("Database(Guest- $email) error  ::::". $e->getMessage());
         $_SESSION['status'] = "<div class='bg-danger text-center'><strong>An error occured, Try again.</strong></div>";
@@ -62,7 +60,7 @@ flashMessage('status');
 //Check if email was previously submitted or existed in current session.
 $email= repopulate('email',"", false);
 //Check if message sent not successfull in previous request.
-$message= repopulate('message',"Type your message here.");
+$message= repopulate('message');
 ?>
 <br>
 <div class="row fs-4" style="padding:1em;">
@@ -76,7 +74,7 @@ $message= repopulate('message',"Type your message here.");
       </div>  
       <div class="form-group">
         <label for="message">Message:</label>
-        <textarea rows="10" name="message" class="form-control"><?= $message ?></textarea>
+        <textarea rows="10" name="message" class="form-control" placeholder="Type your message here."><?= $message ?></textarea>
       </div> <br />
       <button type="submit" class="btn btn-primary btn-lg float-end">Send Message</button>
       </form> <br />

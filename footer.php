@@ -2,7 +2,7 @@
     <div class="row">
         <div clas="col-12">
             <div>
-                &copy; <?= date("Y", time());?> WEBNESIS  <img src="\MyPortfolio\images\icon.png" /> <!-- <img src="images/icon.png" /> -->
+                &copy; <?= date("Y", time());?> WEBNESIS  <img src="images/icon.png" />
             </div>
         </div>
     </div>

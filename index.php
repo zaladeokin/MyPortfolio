@@ -1,12 +1,11 @@
 <?php
-session_start();
 require_once('cookie.php');
 require_once('header.php');
 ?>
 <div class="row fs-4" style="padding:1em;">
     <div class="col-sm-9">
         <h1>About Me</h1><br />
-        <img id="photo" src="\MyPortfolio\images\myPhoto.jpg" /> <!-- <img id="photo" src="images/myPhoto.jpg" /> -->
+        <img id="photo" src="images/myPhoto.jpg" /> <!-- <img id="photo" src="images/myPhoto.jpg" /> -->
         <p>
         Hello, I'm Aladeokin Zacchaeus by name, you can simply call me Zack...<br />
         I'm a web developer. <br>

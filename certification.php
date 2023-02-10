@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once('cookie.php');
 require_once('publicPDO.php');
 
