@@ -33,7 +33,7 @@ if(!$cont){
         <div class="row fs-4" style="padding:1em;">
           <div class="col-sm-12">
             <h1> Certification.</h1><br />
-            <p> The following certify the skills acquired that I used as my development tools, You can verify them through the link that was provided underneath.</p>
+            <p> The following certify the skills that I used as my development tools.</p>
           </div>
         </div>
       _END;
