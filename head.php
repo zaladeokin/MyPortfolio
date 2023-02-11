@@ -1,3 +1,7 @@
+<?php
+$contact = basename($_SERVER['SCRIPT_NAME']) == "contact.php" ? true : false ;
+$bot= basename($_SERVER['SCRIPT_NAME']) == "botTest.php" ? true : false ;
+?>
 <title>Webnesis</title>
 <meta name="keywords" content="website, webpage, development, developer,webnesis, developer" />
 <meta name="author" content="Zacchaeus Aladeokin" />
@@ -12,3 +16,4 @@
 <link rel="stylesheet" href="myStyle/header.css">
 <link rel="stylesheet" href="myStyle/body.css">
 <link rel="stylesheet" href="myStyle/footer.css">
+<?php if($contact){ ?> <!--<script src="https://www.google.com/recaptcha/api.js?render=6Lc6SW8kAAAAADgC147OPVUdWk4163E2vD6ytmVo"></script>--> <?php } ?>

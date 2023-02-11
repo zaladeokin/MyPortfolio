@@ -1,3 +1,6 @@
+<?php
+$index= basename($_SERVER['SCRIPT_NAME']) == "index.php" ? true : false ;
+?>
 <title>Administration</title>
 <meta name="author" content="Zacchaeus Aladeokin" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />

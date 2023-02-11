@@ -22,7 +22,7 @@
          <img src="images/lang_album/JavaScript_json_ajax.jpeg" class="d-block w-100" />
       </div>
       <div class="carousel-item">
-         <img src="images/lang_album/Jquery.png" class="d-block w-100" />
+         <img src="images/lang_album/jquery.png" class="d-block w-100" />
       </div>
       <div class="carousel-item">
          <img src="images/lang_album/bootstrap.jpeg" class="d-block w-100" />

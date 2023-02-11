@@ -1,4 +1,7 @@
 /* style here apply to element for content*/
+textarea{
+    resize: none;
+}
 
 /*index.php*/
 #photo{
@@ -35,4 +38,6 @@
       #waIco{
     color:#25D366;
 }
-
+#load{
+    color: #FFFFFF;
+}

@@ -3,7 +3,25 @@ require_once('cookie.php');
 require_once('publicPDO.php');
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 $valid= true;
-if( isset($_POST['email']) && isset($_POST['message']) ){
+
+//Get reCaptcha response
+$token= isset($_POST['v-token']) ? $_POST['v-token'] : false;
+//verify reCaptcha response
+if($token != false){
+    $reCaptcha= reCaptchaVerify("6Lc6SW8kAAAAAGhPB6YQpNkb1uUO8FOkIjQg6-ER", $token);
+    $reCapVal= $reCaptcha->success;
+    if($reCapVal){
+        $score= $reCaptcha->score;
+        $action= $reCaptcha->action;
+    }else{
+        $score=0; $action="";
+    }
+}else{ 
+    $reCapVal= false;
+}
+
+
+if( isset($_POST['email']) && isset($_POST['message']) /*&& $reCapVal && $score > 0.8 */){
   $_SESSION['status']="";
   $email= $_SESSION['email']= $_POST['email'];
   $message= $_SESSION['message']= $_POST['message'];
@@ -43,7 +61,12 @@ if( isset($_POST['email']) && isset($_POST['message']) ){
   }
   header("Location: contact.php");
   return;
-}
+}/*else if(isset($_POST) && $reCapVal && $score <= 0.8 ){
+    $carry= serialize($_POST);
+    setcookie('request', "$carry", time() + (60*5), "/");
+    header("Location: botTest.php");
+    return;
+}*/
 
 /*
   In the upgrading of this app work on having a separate table in Database for email and use Foreign Key on Message table.
@@ -68,6 +91,7 @@ $message= repopulate('message');
         <h1 class="text-center">Contact Me</h1><br />
         <p> Send me a message for feedback, enquiries, project deal,e.t.c. </p>
         <form method="post" action="contact.php" role="form">
+        <input type="hidden" id="v-token" name="v-token">
       <div class="form-group">
         <label for="email">Your Email:</label>
         <input type="email" name= "email" value="<?= $email ?>" class="form-control">
@@ -76,7 +100,7 @@ $message= repopulate('message');
         <label for="message">Message:</label>
         <textarea rows="10" name="message" class="form-control" placeholder="Type your message here."><?= $message ?></textarea>
       </div> <br />
-      <button type="submit" class="btn btn-primary btn-lg float-end">Send Message</button>
+      <button type="submit" id="submit" class="btn btn-primary btn-lg float-end">Send Message<!--<i class="fa-sharp fa-solid fa-spinner" id="load"></i>--></button>
       </form> <br />
     </div>
     <div class="col-sm-5 text-center">
