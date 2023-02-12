@@ -9,7 +9,7 @@ function admin_mail($sender, $mes){//Develop content of mail to be sent to admin
         You have a message from $sender, the details is as follows:<br><br>
         _int;
     $mes= $into.$mes;
-    $body= customMessage($mes);
+    return $body= customMessage($mes);
 }
 
 $valid= true;
@@ -80,6 +80,8 @@ if( isset($_POST['email']) && isset($_POST['message']) && $score > 0.8 ){
     $carry= serialize($_POST);
     setcookie('request', "$carry", time() + (60*5), "/");
     header("Location: botTest.php");
+}else if($score != 0 && $score < 0.8){
+    $_SESSION['status']="<div class='bg-danger text-center'><strong>Human verification failed.</strong></div>";
 }*/
 
 /*

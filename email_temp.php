@@ -49,18 +49,6 @@ return  <<<_header
         margin:0.5em;
         border-radius: 5rem;
     }
-    #gmIco{
-        color:#c71610;
-    }
-    #ghIco{
-        color:#171515;
-    }
-    #liIco{
-        color:#0072b1;
-    }
-    #waIco{
-        color:#25D366;
-    }
     #footer{
         width:100%;
         height: 3em;
@@ -82,7 +70,7 @@ return  <<<_header
 </head>
 <body>
 <header id="header">
-          <a class="navbar-brand" href="index.php">
+          <a class="navbar-brand" href="http://zack.com.ng">
             <img class="hLogo" src="http://zack.com.ng/images/logo.png" /><span id="sHeading">WEBNESIS</span>
           </a>
 </header>
