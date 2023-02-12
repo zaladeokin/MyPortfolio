@@ -81,6 +81,7 @@ _header;
 
 
 function footer_tmp(){
+    $year= date("Y", time());
 return  <<<_footer
             <aside>
             <strong>Mailing address</strong><a href="mailto: webdev@zack.com.ng">webdev@zack.com.ng</i></a><br>
@@ -90,7 +91,7 @@ return  <<<_footer
             </aside>
             </main>
             <footer id="footer">
-            &copy; 2023 WEBNESIS  <img src="http://zack.com.ng/images/icon.png" />
+            &copy; $year WEBNESIS  <img src="http://zack.com.ng/images/icon.png" />
             </div>
         </div>
         </div>
