@@ -9,6 +9,7 @@ if(isset($_POST['verify'])){//reCaptcha processing
     $reCaptcha= reCaptchaVerify("6LeMhXAkAAAAAD8itTn2YbPiZZHPnbpvAI6k18NG", $token);
     $reCapVal= $reCaptcha->success;
     if($reCapVal){
+        $_SESSION['notBot'] = true;
         $_SESSION['email']= $post['email'];// Restore content for form in contact.php
         $_SESSION['message']= $post['message'];
         setcookie('request', "", time() - (60*5), "/");//destroy cookie on success.

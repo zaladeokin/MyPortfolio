@@ -2,26 +2,38 @@
 require_once('cookie.php');
 require_once('publicPDO.php');
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
+include("email.php");
+function admin_mail($sender, $mes){//Develop content of mail to be sent to admin.
+    $into= <<<_int
+        <strong>Hello Zack,</strong><br>
+        You have a message from $sender, the details is as follows:<br><br>
+        _int;
+    $mes= $into.$mes;
+    $body= customMessage($mes);
+}
+
 $valid= true;
 
 //Get reCaptcha response
 $token= isset($_POST['v-token']) ? $_POST['v-token'] : false;
+$score=0;
 //verify reCaptcha response
 if($token != false){
     $reCaptcha= reCaptchaVerify("6Lc6SW8kAAAAAGhPB6YQpNkb1uUO8FOkIjQg6-ER", $token);
     $reCapVal= $reCaptcha->success;
     if($reCapVal){
         $score= $reCaptcha->score;
-        $action= $reCaptcha->action;
-    }else{
-        $score=0; $action="";
     }
-}else{ 
-    $reCapVal= false;
 }
 
+if( isset($_SESSION['notBot']) && $_SESSION['notBot'] === true ){//reCaptcha v2 verification success check as alternate
+    $_POST['email']= repopulate('email');
+    $_POST['message']= repopulate('message');
+    $score=0.9;
+    unset($_SESSION['notBot']);
+}
 
-if( isset($_POST['email']) && isset($_POST['message']) /*&& $reCapVal && $score > 0.8 */){
+if( isset($_POST['email']) && isset($_POST['message']) && $score > 0.8 ){
   $_SESSION['status']="";
   $email= $_SESSION['email']= $_POST['email'];
   $message= $_SESSION['message']= $_POST['message'];
@@ -47,6 +59,9 @@ if( isset($_POST['email']) && isset($_POST['message']) /*&& $reCapVal && $score 
         ':msg'=>$message
       ));
       // use mail() function here to send instant email response to client and yourself.....
+      $sub= "Zacchaeus @Webnesis";
+      //send_mail($email,$sub, autoResponse($email), header_param());
+      //send_mail('webdev@zack.com.ng',"Mail from $email", admin_mail($email, $message), header_param());
       $_SESSION['status'] = "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
       unset($_SESSION['message']);
       //setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "webnesis.22web.org");
@@ -61,11 +76,10 @@ if( isset($_POST['email']) && isset($_POST['message']) /*&& $reCapVal && $score 
   }
   header("Location: contact.php");
   return;
-}/*else if(isset($_POST) && $reCapVal && $score <= 0.8 ){
+}/*else if(isset($_POST) && $score == 0.8 ){
     $carry= serialize($_POST);
     setcookie('request', "$carry", time() + (60*5), "/");
     header("Location: botTest.php");
-    return;
 }*/
 
 /*
