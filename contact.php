@@ -3,6 +3,12 @@ require_once('cookie.php');
 require_once('publicPDO.php');
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 include("email.php");
+
+if(!isset($_SESSION['client_name'])){
+  $permissions= ['email'];//Facebook login
+  $loginUrl= $helper->getLoginURL("https://zack.com.ng/fb_callback.php", $permissions);
+  }  
+
 function admin_mail($sender, $mes){//Develop content of mail to be sent to admin.
     $into= <<<_int
         <strong>Hello Zack,</strong><br>
@@ -60,8 +66,9 @@ if( isset($_POST['email']) && isset($_POST['message']) && $score > 0.8 ){
       ));
       // use mail() function here to send instant email response to client and yourself.....
       $sub= "Zacchaeus @Webnesis";
-      //send_mail($email,$sub, autoResponse($email), header_param());
-      //send_mail('webdev@zack.com.ng',"Mail from $email", admin_mail($email, $message), header_param());
+      $to= isset($_SESSION['client_name']) ? $_SESSION['client_name'] : $email;
+      //send_mail($email,$sub, autoResponse($to), header_param());
+      //send_mail('webdev@zack.com.ng',"Mail from $to", admin_mail($to, $message), header_param());
       $_SESSION['status'] = "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
       unset($_SESSION['message']);
       //setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "webnesis.22web.org");

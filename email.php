@@ -5,7 +5,7 @@ function autoResponse($reader= ""){/*To generate auto reply when someone post on
     $foot= footer_tmp();
     return  <<<_msg
                 $head
-                <strong>Hello $reader,</strong><br><br>
+                <strong>Hello $reader,</strong><br>
                 <p>Your mail was well recieved and will be duly process.</p>
                 <p>Thanks for contacting me, if necessary I'll give response as soon as possible. I look forward to serve you better.</p><br>
                 Best Regard,<br><br>

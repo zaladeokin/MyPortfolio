@@ -1,13 +1,21 @@
 <?php
 require_once('cookie.php');
 require_once('header.php');
+
+if(!isset($_SESSION['client_name'])){
+    $permissions= ['email'];//Facebook login
+    $loginUrl= $helper->getLoginURL("https://zack.com.ng/fb_callback.php", $permissions);
+    $client="";
+}else{
+    $client= "&nbsp;".$_SESSION['client_name'];
+}
 ?>
 <div class="row fs-4" style="padding:1em;">
     <div class="col-sm-9">
         <h1>About Me</h1><br />
         <img id="photo" src="images/myPhoto.jpg" /> <!-- <img id="photo" src="images/myPhoto.jpg" /> -->
         <p>
-        Hello, I'm Aladeokin Zacchaeus by name, you can simply call me Zack...<br />
+        Hello<?= $client; ?>, I'm Aladeokin Zacchaeus by name, you can simply call me Zack...<br />
         I'm a web developer. <br>
         It will be nice  to introduce myself: what I do? how I do it? and also what I've done?
         I'm in to Web Development and I code using PHP and MySQL for back-end web application and have solid knowledge and experience in HTML, CSS and JavaScript. </p>

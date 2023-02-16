@@ -38,6 +38,11 @@ textarea{
       #waIco{
     color:#25D366;
 }
+#fb{
+    color: #3b5998;
+}
+
+/*Submit button loading icon*/
 #load{
     color: #FFFFFF;
 }

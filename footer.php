@@ -1,3 +1,6 @@
+<?php if( ($current_file == "index.php" || $current_file == "contact.php") && !isset($_SESSION['client_name']) ){ ?>
+    <aside id="auth"><button id="close">Discard</button><?php include("fb_auth_page.php"); ?></aside>
+<?php } ?>
 <footer id="footer">
     <div class="row">
         <div clas="col-12">
@@ -10,7 +13,7 @@
 <script src="js/bootstrap.bundle.min.js"></script>
 <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script> -->
 
-<?php if($contact){?>
+<?php if($current_file == "contact.php"){?>
 
 <script>
     /*var disable= document.getElementById("submit");
@@ -25,7 +28,7 @@
     });*/
 </script>
 
-<?php }else if($bot){ ?>
+<?php }else if($current_file == "botTest.php"){ ?>
 
 <!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
 async defer></script>-->
@@ -55,7 +58,10 @@ if(Submit){
 });*/
 </script>
 
+<?php } 
+if($current_file == "index.php" || $current_file == "contact.php"){
+?>
+<script src="scripts/notification.js"></script><?php //Sigin notification ?>
 <?php } ?>
-
 </body>
 </html>
