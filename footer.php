@@ -1,5 +1,12 @@
 <?php if( ($current_file == "index.php" || $current_file == "contact.php") && !isset($_SESSION['client_name']) ){ ?>
     <aside id="auth"><button id="close">Discard</button><?php include("fb_auth_page.php"); ?></aside>
+<?php 
+} else if( isset($_SESSION['client_name']) && !isset($_SESSION['first_login'])){
+    $_SESSION['first_login']= true;//to confirm if the previous user should continue current session ?>
+    <aside id="logout"><i class="fa-solid fa-xmark float-end fa-1x" id="hide"></i><br>
+    <p>Welcome <?= $_SESSION['client_name']; ?><p>
+    <p>Not you?&nbsp;&nbsp;<a href="logout.php">Login as different user.</a></p>
+    </aside>
 <?php } ?>
 <footer id="footer">
     <div class="row">

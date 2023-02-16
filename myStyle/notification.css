@@ -59,3 +59,34 @@
         left: 25vw;
     }
 }
+
+
+
+/*Logout pop up*/
+#logout{
+    position: fixed;
+    top: 25vh;
+    left: 5vw;
+    width: 90vw;
+    min-height: 20vh;
+    padding: 5vw;
+    border-radius: 1em;
+    background-color: #b1a698;
+    z-index: 100;
+    font-size: 1em;
+    font-style: oblique;
+}
+#logout a, #logout a:link, #logout a:visited{
+    text-decoration: none;
+    color: #1A62D1;
+}
+
+@media screen and (min-width:780px){
+    #logout{
+        top: 8vh;
+        left: 0vw;
+        width: 25vw;
+        padding: 1vw;
+        border-radius: 0em 0em 1em 0em;
+    }
+}

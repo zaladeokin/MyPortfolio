@@ -44,6 +44,7 @@ if(isset($accessToken)){// i.e. successful login
             if( ($data->rowCount()) > 0 ){ //User data already exist
                 $_SESSION['client_name']= $name;
                 $_SESSION['email']= $email;
+                $_SESSION['first_login']= true;//to confirm if the previous user should continue current session
                 setcookie('client_name', $name, time()+60*60*24*365, "/");
                 setcookie('guestEmail', $email, time()+60*60*24*365, "/");
                 header("Location: index.php");
@@ -62,6 +63,7 @@ if(isset($accessToken)){// i.e. successful login
                     send_mail('webdev@zack.com.ng',"New Client ($name)", admin_mail($name), header_param());
                     $_SESSION['client_name']= $name;
                     $_SESSION['email']= $email;
+                    $_SESSION['first_login']= true;//to confirm if the previous user should continue current session
                     setcookie('client_name', $name, time()+60*60*24*365, "/");
                     setcookie('guestEmail', $email, time()+60*60*24*365, "/");
                     header("Location: index.php");
