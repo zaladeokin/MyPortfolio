@@ -3,8 +3,6 @@ require_once('cookie.php');
 require_once('header.php');
 
 if(!isset($_SESSION['client_name'])){
-    $permissions= ['email'];//Facebook login
-    $loginUrl= $helper->getLoginURL("https://zack.com.ng/fb_callback.php", $permissions);
     $client="";
 }else{
     $client= "&nbsp;".$_SESSION['client_name'];

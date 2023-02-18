@@ -28,6 +28,10 @@ require_once('head.php');
       </nav>
     </header>
 <?php
+//Flash POST status message
+flashMessage('status');
+
+
 /* 
 Remember to close the below tag in footer.php
     </body>

@@ -1,13 +1,7 @@
 <?php
 require_once('cookie.php');
 require_once('publicPDO.php');
-require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
-include("email.php");
-
-if(!isset($_SESSION['client_name'])){
-  $permissions= ['email'];//Facebook login
-  $loginUrl= $helper->getLoginURL("https://zack.com.ng/fb_callback.php", $permissions);
-  }  
+include("email.php"); 
 
 function admin_mail($sender, $mes){//Develop content of mail to be sent to admin.
     $into= <<<_int
@@ -39,7 +33,7 @@ if( isset($_SESSION['notBot']) && $_SESSION['notBot'] === true ){//reCaptcha v2 
     unset($_SESSION['notBot']);
 }
 
-if( isset($_POST['email']) && isset($_POST['message']) && $score > 0.8 ){
+if( isset($_POST['email']) && isset($_POST['message']) /*&& $score > 0.8*/ ){
   $_SESSION['status']="";
   $email= $_SESSION['email']= $_POST['email'];
   $message= $_SESSION['message']= $_POST['message'];
@@ -71,10 +65,6 @@ if( isset($_POST['email']) && isset($_POST['message']) && $score > 0.8 ){
       //send_mail('webdev@zack.com.ng',"Mail from $to", admin_mail($to, $message), header_param());
       $_SESSION['status'] = "<div class='container-fluid bg-success text-center text-break p-5 fs-4'><strong>Hello &nbsp;".htmlentities($email)."</strong><br> <p>Your message has been recieved, we will get back to you shortly.</p></div>";
       unset($_SESSION['message']);
-      //setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "webnesis.22web.org");
-      //setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "webnesis.22web.org");
-      setcookie('guestEmail', $_SESSION['email'], time()+60*60*24*365, "/");
-      setcookie('guest_Browser', $_SERVER['HTTP_USER_AGENT'], time()+60*60*24*365, "/");
     }catch(Exception $e){
         error_log("Database(Guest- $email) error  ::::". $e->getMessage());
         $_SESSION['status'] = "<div class='bg-danger text-center'><strong>An error occured, Try again.</strong></div>";
@@ -100,8 +90,6 @@ if( isset($_POST['email']) && isset($_POST['message']) && $score > 0.8 ){
 // View start here.................
 require_once('header.php');
 
-//Flash POST status message
-flashMessage('status');
 
 //Check if email was previously submitted or existed in current session.
 $email= repopulate('email',"", false);

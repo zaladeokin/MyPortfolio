@@ -1,9 +1,10 @@
 <?php
 session_start();
+require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 include('Facebook/autoload.php');// for facebook login
 
 //Cookie start here
-if( isset($_COOKIE['guestEmail']) && isset($_COOKIE['guest_Browser']) && $_COOKIE['guest_Browser'] == $_SERVER['HTTP_USER_AGENT']){
+if( isset($_COOKIE['guestEmail'])){
     $_SESSION['email']= $_COOKIE['guestEmail'];
 }
 if( isset($_COOKIE['client_name']) ){

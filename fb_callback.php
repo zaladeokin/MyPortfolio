@@ -38,9 +38,9 @@ if(isset($accessToken)){// i.e. successful login
     $profile= $profile_req->getGraphNode()->asArray(); //return  value in array
     
     if(!empty($profile)){
-        $name= $profile['name'];    $email= $profile['email']; $img= $profile['picture']['url']; $id=$profile['id'];
+        $name= $profile['name'];    $email= $profile['email']; $img= $profile['picture']['url'];
         try{
-            $data= $pdo->query("SELECT * FROM Client WHERE email='$email' AND id ='$id'");
+            $data= $pdo->query("SELECT * FROM Client WHERE email='$email'");
             if( ($data->rowCount()) > 0 ){ //User data already exist
                 $_SESSION['client_name']= $name;
                 $_SESSION['email']= $email;
@@ -51,9 +51,8 @@ if(isset($accessToken)){// i.e. successful login
                 return;
             }else{//not exist, register client
                 try{
-                    $upload= $pdo->prepare("INSERT INTO Client(id, name, email, img) VALUES(:id, :name, :em, :img)");
+                    $upload= $pdo->prepare("INSERT INTO Client(name, email, img) VALUES(:name, :em, :img)");
                     $upload->execute(array(
-                        ':id' => $id,
                         ':name' => $name,
                         ':em'=> $email,
                         ':img'=> $img
@@ -80,7 +79,7 @@ if(isset($accessToken)){// i.e. successful login
         }
     }
 }else{
-    $_SESSION['error']= "Access denied";
+    $_SESSION['status']= "<div class='bg-danger text-center'><strong>Access Denied.</strong></div>";
     header("Location: index.php");
     return;
 }
