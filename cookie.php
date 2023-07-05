@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("Admin/config.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 include('Facebook/autoload.php');// for facebook login
 
@@ -17,9 +18,9 @@ $current_file = basename($_SERVER['SCRIPT_NAME']);
 if( ($current_file == "contact.php" || $current_file== "index.php" || $current_file == "fb_callback.php") && !isset($_SESSION['client_name']) ){
     $fb= new \Facebook\Facebook(
         [
-            'app_id' => "1371963800219541",
-            'app_secret' => "95e62a4179ae6a20ccca47eed4e8e245",
-            "default_graph_version" => "v2.5",
+            'app_id' => _FB_APP_ID_,
+            'app_secret' => _FB_APP_SECRET_KEY_,
+            "default_graph_version" => _FB_APP_VERSION_,
         ]
     );
     

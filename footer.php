@@ -1,19 +1,20 @@
 <?php if( ($current_file == "index.php" || $current_file == "contact.php") && !isset($_SESSION['client_name']) ){ ?>
-    <aside id="auth"><button id="close">Discard</button><?php include("fb_auth_page.php"); ?></aside>
+<aside id="auth"><button id="close">Discard</button><?php include("fb_auth_page.php"); ?></aside>
 <?php 
 }
 if( isset($_SESSION['client_name']) && !isset($_SESSION['first_login'])){
     $_SESSION['first_login']= true;//to confirm if the previous user should continue current session ?>
-    <aside id="logout"><i class="fa-solid fa-xmark float-end fa-1x" id="hide"></i><br>
-    <p>Welcome <?= $_SESSION['client_name']; ?><p>
+<aside id="logout"><i class="fa-solid fa-xmark float-end fa-1x" id="hide"></i><br>
+    <p>Welcome <?= $_SESSION['client_name']; ?>
+    <p>
     <p>Not you?&nbsp;&nbsp;<a href="logout.php">Login as different user.</a></p>
-    </aside>
+</aside>
 <?php } ?>
 <footer id="footer">
     <div class="row">
         <div clas="col-12">
             <div>
-                &copy; <?= date("Y", time());?> WEBNESIS  <img src="images/icon.png" />
+                &copy; <?= date("Y", time());?> WEBNESIS <img src="images/icon.png" />
             </div>
         </div>
     </div>
@@ -24,10 +25,10 @@ if( isset($_SESSION['client_name']) && !isset($_SESSION['first_login'])){
 <?php if($current_file == "contact.php"){?>
 
 <script>
-    /*var disable= document.getElementById("submit");
+/*var disable= document.getElementById("submit");
     disable.disabled= true;
     grecaptcha.ready(function() {
-      grecaptcha.execute('6Lc6SW8kAAAAADgC147OPVUdWk4163E2vD6ytmVo', {action: 'contact'}).then(function(token) {
+      grecaptcha.execute('<?= _V3_SITE_KEY_ ?>', {action: 'contact'}).then(function(token) {
           document.getElementById("v-token").value= token;
           disable.removeChild(document.getElementById("load"));
           disable.appendChild(document.createTextNode("Send Message"));
@@ -51,7 +52,7 @@ var Verify= function(response){
 
 var onloadCallback = function() {
 grecaptcha.render('test', {
-    'sitekey': '6LeMhXAkAAAAALvVjFq_DMr6ZQzGONpeQLg4UX3j',
+    'sitekey': '<?= _V2_SITE_KEY_ ?>',
     'callback': Verify,
     'theme' : 'darK',
 });
@@ -72,4 +73,5 @@ if($current_file == "index.php" || $current_file == "contact.php"){
 <script src="scripts/notification.js"></script><?php //Sigin notification ?>
 <?php } ?>
 </body>
+
 </html>

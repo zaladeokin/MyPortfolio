@@ -29,8 +29,8 @@ function customMessage($content){/* To generate template for contents of any typ
 function header_param(){
 $headers = "From: Webnesis \r\n";
 $headers .= "Reply-To: webdev@zack.com.ng\r\n";
-//$headers .= "CC: zaladeokin@gmail.com\r\n";//a copy is sent here also
-//$headers .= "BCC: zaladeokin@gmail.com\r\n";//email copy is sent here too but can't see the bcc field
+//$headers .= "CC: "._ADMIN_EMAIL_."\r\n";//a copy is sent here also
+//$headers .= "BCC: "._ADMIN_EMAIL_."\r\n";//email copy is sent here too but can't see the bcc field
 $headers .= "Content-Type: text/html; charset=ISO-8859-1 \r\n"; 
 $headers .= "MIME-Version: 1.0 \r\n";
 
@@ -42,4 +42,3 @@ function send_mail($to, $sub, $mes, $head){
 }
 
 ?>
-    

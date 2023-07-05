@@ -1,9 +1,9 @@
 <?php
 session_start();
+require_once("auth.php");
 require_once("adminPDO.php");
 //require_once("http://webnesis.byehost7.com/Zlib/zlib.php");
 require_once("C:/xampp/htdocs/Zlib/zlib.php");
-require_once("auth.php");
 
 //Tool category from Database
 try{
@@ -86,18 +86,18 @@ $select= ($cat != "" || $cat != "0") ? "" :"selected";
 ?>
 <div class="container p-5 fs-4">
     <h1> Upload Certificate</h1><br>
-<form method="post" action="Ucertificate.php" enctype="multipart/form-data" class="fs-4">
-    <?php //PHP shoud control title length not too be too much ?>
-            <label for="Title">Title   </label>&nbsp;&nbsp;
-            <input type="text" name="title" value="<?= $title; ?>" class="form-control" /> <br />
-            <label for="Title">Verification Link(optional)  </label>&nbsp;&nbsp;
-            <input type="url" name="verification" value="<?= $verification; ?>" class="form-control" /> <br />
-            <label for="Screenshot" class="form-label">Screenshot  </label>
-            <input type="file" name="certificate" class="form-control" accept="image/*" /> <br />
-            <label for="toolbox">Category</label>&nbsp;&nbsp;
-            <select name="tool_category" class="form-select form-select-sm">
-                <option value='0' <?= $select; ?>> Certificate Category</option>
-                <?php
+    <form method="post" action="Ucertificate.php" enctype="multipart/form-data" class="fs-4">
+        <?php //PHP shoud control title length not too be too much ?>
+        <label for="Title">Title </label>&nbsp;&nbsp;
+        <input type="text" name="title" value="<?= $title; ?>" class="form-control" /> <br />
+        <label for="Title">Verification Link(optional) </label>&nbsp;&nbsp;
+        <input type="url" name="verification" value="<?= $verification; ?>" class="form-control" /> <br />
+        <label for="Screenshot" class="form-label">Screenshot </label>
+        <input type="file" name="certificate" class="form-control" accept="image/*" /> <br />
+        <label for="toolbox">Category</label>&nbsp;&nbsp;
+        <select name="tool_category" class="form-select form-select-sm">
+            <option value='0' <?= $select; ?>> Certificate Category</option>
+            <?php
                     if($tval){
                         while($t = $tool->fetch(PDO::FETCH_ASSOC)){
                             $select= ($t['toolbox_id'] == $cat) ? "selected": "";
@@ -105,10 +105,10 @@ $select= ($cat != "" || $cat != "0") ? "" :"selected";
                         }
                     }
                 ?>
-            </select><br /><br />
-            <input type="submit"  class="btn btn-primary btn-lg float-end" value="UPLOAD" />
-</form>
-<br />
+        </select><br /><br />
+        <input type="submit" class="btn btn-primary btn-lg float-end" value="UPLOAD" />
+    </form>
+    <br />
 </div>
 
 <?php

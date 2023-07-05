@@ -19,7 +19,7 @@ $token= isset($_POST['v-token']) ? $_POST['v-token'] : false;
 $score=0;
 //verify reCaptcha response
 if($token != false){
-    $reCaptcha= reCaptchaVerify("6Lc6SW8kAAAAAGhPB6YQpNkb1uUO8FOkIjQg6-ER", $token);
+    $reCaptcha= reCaptchaVerify(_V3_SECRET_KEY_, $token);
     $reCapVal= $reCaptcha->success;
     if($reCapVal){
         $score= $reCaptcha->score;
@@ -102,33 +102,38 @@ $message= repopulate('message');
         <h1 class="text-center">Contact Me</h1><br />
         <p> Send me a message for feedback, enquiries, project deal,e.t.c. </p>
         <form method="post" action="contact.php" role="form">
-        <input type="hidden" id="v-token" name="v-token">
-      <div class="form-group">
-        <label for="email">Your Email:</label>
-        <input type="email" name= "email" value="<?= $email ?>" class="form-control">
-      </div>  
-      <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea rows="10" name="message" class="form-control" placeholder="Type your message here."><?= $message ?></textarea>
-      </div> <br />
-      <button type="submit" id="submit" class="btn btn-primary btn-lg float-end">Send Message<!--<i class="fa-sharp fa-solid fa-spinner" id="load"></i>--></button>
-      </form> <br />
+            <input type="hidden" id="v-token" name="v-token">
+            <div class="form-group">
+                <label for="email">Your Email:</label>
+                <input type="email" name="email" value="<?= $email ?>" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea rows="10" name="message" class="form-control"
+                    placeholder="Type your message here."><?= $message ?></textarea>
+            </div> <br />
+            <button type="submit" id="submit" class="btn btn-primary btn-lg float-end">Send Message
+                <!--<i class="fa-sharp fa-solid fa-spinner" id="load"></i>-->
+            </button>
+        </form> <br />
     </div>
     <div class="col-sm-5 text-center">
         <div>
-          <strong> Other Platforms:</strong><br />
-          <a href="mailto: zaladeokin@gmail.com"><i class="fa-regular fa-envelope fa-4x" id="gmIco"></i></a>
-          <a href="https://github.com/zaladeokin"><i class="fa-brands fa-github fa-4x" id="ghIco"></i></a>
-          <a href="https://www.linkedin.com/in/zacchaeus-aladeokin-7b334a22a"><i class="fa-brands fa-linkedin fa-4x" id="liIco"></i></a>
-          <a href="https://api.whatsapp.com/send?phone=2348135994222"><i class="fa-brands fa-whatsapp fa-4x" id="waIco"></i></a><br /><br />
+            <strong> Other Platforms:</strong><br />
+            <a href="mailto: zaladeokin@gmail.com"><i class="fa-regular fa-envelope fa-4x" id="gmIco"></i></a>
+            <a href="https://github.com/zaladeokin"><i class="fa-brands fa-github fa-4x" id="ghIco"></i></a>
+            <a href="https://www.linkedin.com/in/zacchaeus-aladeokin-7b334a22a"><i class="fa-brands fa-linkedin fa-4x"
+                    id="liIco"></i></a>
+            <a href="https://api.whatsapp.com/send?phone=2348135994222"><i class="fa-brands fa-whatsapp fa-4x"
+                    id="waIco"></i></a><br /><br />
         </div>
         <div>
-         <strong>My tools:</strong>
-               <!-- Caurosel start here-->
-                   <?php
+            <strong>My tools:</strong>
+            <!-- Caurosel start here-->
+            <?php
                       require_once("skillshow.php");
                    ?>
-                <!-- Caurosel ends here -->
+            <!-- Caurosel ends here -->
         </div>
     </div>
 </div>

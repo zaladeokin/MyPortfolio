@@ -2,7 +2,7 @@
     <div class="row">
         <div clas="col-12">
             <div>
-                &copy; <?= date("Y", time()); ?> WEBNESIS  <img src="\MyPortfolio\images\icon.png" />
+                &copy; <?= date("Y", time()); ?> WEBNESIS <img src="\MyPortfolio\images\icon.png" />
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
 <!--<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
     async defer></script>-->
 <script type="text/javascript">
-   /* var Submit= false;//to make reCaptcha required.
+/* var Submit= false;//to make reCaptcha required.
 
     var Verify= function(response){
         if(response == grecaptcha.getResponse()){
@@ -25,7 +25,7 @@
 
   var onloadCallback = function() {
     grecaptcha.render('test', {
-        'sitekey': '6LeMhXAkAAAAALvVjFq_DMr6ZQzGONpeQLg4UX3j',
+        'sitekey': '<?= _V2_SITE_KEY_?>',
         'callback': Verify,
     });
   }
@@ -42,4 +42,5 @@
 <?php } ?>
 
 </body>
+
 </html>

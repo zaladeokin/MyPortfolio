@@ -6,7 +6,7 @@ require_once("auth.php");
 
 //control access to admin page
 $access= isset($_GET['private'])? $_GET['private']:"intruder";
-if($access != 'aladex'){
+if($access != _ADMIN_ACCESS_){
     //header("Location:http://webnesis.22web.org"); //Intruder redirect to non-admin homepage
     header("Location:http://localhost/MyPortfolio/"); //Intruder redirect to non-admin homepage
 }
@@ -19,16 +19,16 @@ if(isset($_SESSION['admin'])){
 //reCaptcha validation
 /*if(isset($_POST['verify'])){//reCaptcha processing
     $token= $_POST['g-recaptcha-response'];
-    $reCaptcha= reCaptchaVerify("6LeMhXAkAAAAAD8itTn2YbPiZZHPnbpvAI6k18NG", $token);
+    $reCaptcha= reCaptchaVerify(_V2_SECRET_KEY_, $token);
     $reCapVal= $reCaptcha->success;
 }else{
     $reCapVal= false;
 }*/
 
 
-$check= "Admin001";
+$check= _ADMIN_USERNAME_;
 $rt= time(); //request time for salting
-$check1= hash('md5', "webAdmin".$rt);
+$check1= hash('md5', _ADMIN_PASSW_.$rt);
 
 //validate login
 if( isset($_POST['user']) && isset($_POST['password'])/* && $reCapVal*/ ){
@@ -58,16 +58,16 @@ require_once("header.php");
 
 <div class="container p-5 fs-4">
     <h1> Portal</h1><br>
-<form method="post" class="fs-4" id="bot">
-    <?php // Login form, PHP should generate hash for this page to be access ?>
-            <label for="user">User  </label>&nbsp;&nbsp;
-            <input type="text" name="user" class="form-control" /> <br />
-            <label for="password">Password  </label>&nbsp;&nbsp;
-            <input type="password" name="password" class="form-control" /> <br>
-            <!--<div id="test" class="g-recaptcha"></div><br>-->
-            <input type="submit" name="verify" class="btn btn-primary btn-lg float-end" value="Login" />
-</form>
-<br />
+    <form method="post" class="fs-4" id="bot">
+        <?php // Login form, PHP should generate hash for this page to be access ?>
+        <label for="user">User </label>&nbsp;&nbsp;
+        <input type="text" name="user" class="form-control" /> <br />
+        <label for="password">Password </label>&nbsp;&nbsp;
+        <input type="password" name="password" class="form-control" /> <br>
+        <!--<div id="test" class="g-recaptcha"></div><br>-->
+        <input type="submit" name="verify" class="btn btn-primary btn-lg float-end" value="Login" />
+    </form>
+    <br />
 </div>
 
 <?php

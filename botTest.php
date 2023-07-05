@@ -1,12 +1,13 @@
 <?php
 session_start();
+require_once("Admin/config.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
 if( isset($_COOKIE['request']) ){//Get Data sumitted && restrict access
     $post= unserialize($_COOKIE['request']);
 
 if(isset($_POST['verify'])){//reCaptcha processing
     $token= $_POST['g-recaptcha-response'];
-    $reCaptcha= reCaptchaVerify("6LeMhXAkAAAAAD8itTn2YbPiZZHPnbpvAI6k18NG", $token);
+    $reCaptcha= reCaptchaVerify(_V2_SECRET_KEY_, $token);
     $reCapVal= $reCaptcha->success;
     if($reCapVal){
         $_SESSION['notBot'] = true;
@@ -29,12 +30,12 @@ require_once('header.php');
             <h1> Bot activity detected.</h1>
             <p> Please, verify you're a human</p>
             <form method="POST" action="botTest.php" id="bot" role="verification">
-            <div id="test" class="g-recaptcha"></div>
-            <input type="submit" name="verify" value="Verify">
-</form>
-          </div> 
+                <div id="test" class="g-recaptcha"></div>
+                <input type="submit" name="verify" value="Verify">
+            </form>
         </div>
-      </div>
+    </div>
+</div>
 <?php
 require_once('footer.php');
 }else{ header("Location: index.php"); return; } //First $_COOKIES "if" close here

@@ -1,8 +1,8 @@
 <?php
 session_start();
+require_once("auth.php");
 require_once("adminPDO.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
-require_once("auth.php");
 require_once("header.php");
 //ensure you login in index.php admin before requesting dbsetup.php in url
 createTable('Toolbox','toolbox_id INTEGER NOT NULL AUTO_INCREMENT, tool_name varchar(70) not null, PRIMARY KEY(toolbox_id)', $pdo);

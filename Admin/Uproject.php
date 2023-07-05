@@ -1,8 +1,8 @@
 <?php
 session_start();
+require_once("auth.php");
 require_once("adminPDO.php");
 require_once($_SERVER['DOCUMENT_ROOT']."/zlib/zlib.php");
-require_once("auth.php");
 
 if( isset($_FILES['image']) && isset($_POST['name']) && isset($_POST['description']) ){
     $_SESSION['status']="";
@@ -73,17 +73,17 @@ $description= repopulate('description');
  ?>
 <div class="container p-5 fs-4">
     <h1> Upload Project Work</h1><br>
-<form method="post" action="Uproject.php" enctype="multipart/form-data" class="fs-4">
-    <?php //PHP shoud control title and description length not too be too much ?>
-            <label for="Title">Project Name (max of 50 character)   </label>&nbsp;&nbsp;
-            <input type="text" name="name" value="<?= $name; ?>" class="form-control" /> <br />
-            <label for="description">Description (max of 500 character)  </label>
-            <textarea name="description" class="form-control" rows="5"><?= $description; ?></textarea><br />
-        <label for="image" class="form-label">Screenshot  </label>
-        <input type="file" name="image" class="form-control"  accept="image/*" /> <br /><br />
-        <input type="submit"  class="btn btn-primary btn-lg float-end" value="UPLOAD" />
-</form>
-<br />
+    <form method="post" action="Uproject.php" enctype="multipart/form-data" class="fs-4">
+        <?php //PHP shoud control title and description length not too be too much ?>
+        <label for="Title">Project Name (max of 50 character) </label>&nbsp;&nbsp;
+        <input type="text" name="name" value="<?= $name; ?>" class="form-control" /> <br />
+        <label for="description">Description (max of 500 character) </label>
+        <textarea name="description" class="form-control" rows="5"><?= $description; ?></textarea><br />
+        <label for="image" class="form-label">Screenshot </label>
+        <input type="file" name="image" class="form-control" accept="image/*" /> <br /><br />
+        <input type="submit" class="btn btn-primary btn-lg float-end" value="UPLOAD" />
+    </form>
+    <br />
 </div>
 
 <?php

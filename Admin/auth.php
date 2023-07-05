@@ -1,4 +1,6 @@
 <?php
+require_once("config.php");
+
 $page= basename($_SERVER['SCRIPT_NAME']);
 if(isset($_SESSION['admin'])){
   $auth=true;
